@@ -1,0 +1,240 @@
+body
+{
+	background-color: #000000;
+	padding:0px;
+	margin:0px;
+}
+
+.navBarBack
+{
+	z-index:1000;
+	position:fixed;
+	top:0px;
+	background-color:rgba(18, 35, 80, 0.7);
+	display:block;
+	height:45px;
+	width:100%;
+}
+
+.navContent
+{
+	display:block;
+	width:970px;
+	height:45px;
+	margin-left:auto;
+	margin-right:auto;
+	opacity:1.0;
+}
+
+.navContent div:nth-child(1)
+{
+	margin-left:25px;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: inherit;
+    text-decoration: inherit;
+    font-weight: inherit;
+}
+
+a, img {
+    border: 0;
+}
+
+.navText
+{
+	display:inline-block;
+	font-family:'Gotham Black';
+	font-size:11pt;
+	letter-spacing:1px;
+	
+	color:white;
+	padding:14px 45px 0px 0px;
+	
+	vertical-align:top;
+}
+
+.socialIcons
+{
+	display:inline-block;
+	float:right;
+	margin-right:68px;
+}
+
+.mainWrapper
+{
+	display:block;
+	width:100%;
+	min-width:970px;
+	/*max-width:1400px;*/
+	margin-left:auto;
+	margin-right:auto;
+	overflow:hidden;
+	background-repeat:no-repeat;
+	/*background-attachment:fixed;*/
+	background-position:top center;
+}
+
+.starryNight
+{
+	height:792px;
+	background-image:url("../images/stars.jpg");
+	background-repeat:repeat-x;
+}
+
+.rings
+{
+	width:100%;
+	height:100%;
+	background-image:url("../images/rings_02_opt_test2.png");
+	background-repeat:no-repeat;
+	background-position: 50% 0%;
+}
+
+.starryGround
+{
+	width:100%;
+	height:100%;
+	background-image:url("../images/ground.png");
+  	background-repeat:repeat-x;
+  	background-position:left bottom;
+}
+
+.whatIsTelepathy
+{
+	height:628px;
+	background-color:rgb(235, 237, 237);
+}
+
+.howDoesItWork
+{
+	height:660px;
+	background-color:rgb(236, 248, 254);
+}
+
+.whereCanIUseIt
+{
+	height:738px;
+	background-color:rgb(255, 255, 255);
+}
+
+.footerBackground
+{
+	height:183px;
+}
+
+.grid970
+{
+	display:block;
+	width:970px;
+	height:100%;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:80px;
+}
+
+
+
+
+
+/* Slideshow */
+.imageSlideshow
+{
+	margin-bottom:50px;
+	display:inline-block;
+	width:780px;
+	margin-left:auto;
+	margin-right:auto;
+	vertical-align:middle;
+}
+
+#slideshow 
+{
+    position:relative;
+    height:550px;
+    overflow:visible;
+}
+
+#slideshow img.active 
+{
+	position:absolute;
+	display:inline;
+	left:50%;
+    margin-left:-390px;
+	z-index:10;
+}
+
+#slideshow img.left 
+{
+	position:absolute;
+    top:0;
+    margin-left:-1500px;
+    z-index:8;
+    display:inline;
+}
+
+#slideshow img.right 
+{
+	position:absolute;
+    top:0;
+    margin-left:1500px;
+    z-index:8;
+    display:inline;
+}
+
+
+.leftArrow
+{
+	vertical-align:middle;
+	margin-right:20px;
+}
+
+.rightArrow
+{
+	vertical-align:middle;
+	margin-left:20px;
+}
+
+#pageIndicator
+{
+	display:inline-block;
+}
+
+
+
+
+
+/* Footer */
+.yellowFooter
+{
+	display:block;
+	height:7px;
+	background-color:rgb(255, 204, 0);
+}
+
+.footerStores
+{
+	display:block;
+	margin-top:30px;
+	text-align:center;
+}
+
+.footerStores img:nth-child(1)
+{
+	margin-right:20px;
+}
+
+.blueFooter
+{
+	margin-top:15px;
+	padding-top:25px;
+	display:block;
+	height:60px;
+	background-color:rgb(13, 32, 74);
+	color:white;
+	text-align:center;
+}

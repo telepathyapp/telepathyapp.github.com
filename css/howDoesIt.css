@@ -1,0 +1,52 @@
+.howDoesItIcon
+{
+	vertical-align:top;
+}
+
+.howDoesItWorkText
+{
+	display:inline-block;
+	width:493px;
+	
+	margin-left:69px;
+}
+
+.howDoesItWorkText .title
+{
+	font-family:'Gotham Black';
+	font-size:40pt;
+	color: rgb(69, 104, 165);
+	
+	width:350px;
+	
+	line-height:1.1;
+	margin-bottom:20px;
+}
+
+.howDoesItWorkText .bodyText
+{
+	width:300px;
+	line-height:1.3;
+	
+	font-family:'Gotham Book';
+	font-size:16pt;
+	color: rgb(120, 122, 123);
+}
+
+.howDoesTelepathyStores
+{
+	display:inline-block;
+	margin-left:395px;
+	margin-top:-55px;
+}
+
+.howDoesTelepathyStores img:nth-child(1)
+{
+	margin-right:10px;
+}
+
+.howDoesShadows
+{
+	margin-top:50px;
+	margin-left:395px;
+}

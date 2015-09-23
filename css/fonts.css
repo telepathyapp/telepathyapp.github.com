@@ -1,0 +1,43 @@
+/*
+
+******************************* Cross browser support **************************************
+
+@font-face
+{
+	font-family: 'Gotham Black';	// Name
+	src: 	url('../fonts/eot/gotham_htf_black.eot'); // IE *Shudders with disgust*
+	src:	local('Gotham Black'), 
+			local('Gotham'),
+			url("../fonts/otf/gotham_htf_black.otf") format("opentype"), // safari
+			url('../fonts/svg/gotham_htf_black.svg#font') format('svg'), // 
+			url('../fonts/ttf/gotham_htf_black.ttf') format('truetype'), // chrome
+			url('../fonts/woff/gotham_htf_black.woff') format('woff'); 	 // firefox
+}
+
+********************************************************************************************
+
+*/
+
+@font-face
+{
+	font-family: 'Gotham Black';
+	src: 	url('../fonts/eot/gotham_htf_black.eot');
+	src:	local('Gotham Black'), 
+			local('Gotham'),
+			url("../fonts/otf/gotham_htf_black.otf") format("opentype"),
+			url('../fonts/svg/gotham_htf_black.svg#font') format('svg'), 
+			url('../fonts/ttf/gotham_htf_black.ttf') format('truetype'),
+			url('../fonts/woff/gotham_htf_black.woff') format('woff');
+}
+
+@font-face
+{
+	font-family: 'Gotham Book';
+	src: 	url('../fonts/eot/gotham_htf_book.eot');
+	src:	local('Gotham Book'), 
+			local('Gotham'),
+			url("../fonts/otf/gotham_htf_book.otf") format("opentype"),
+			url('../fonts/svg/gotham_htf_book.svg#font') format('svg'), 
+			url('../fonts/ttf/gotham_htf_book.ttf') format('truetype'),
+			url('../fonts/woff/gotham_htf_book.woff') format('woff');
+}

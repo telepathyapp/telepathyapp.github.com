@@ -1,0 +1,66 @@
+.whatIsTelepathyText
+{
+	display:inline-block;
+	width:493px;
+	
+	margin-left:69px;
+}
+
+.whatIsTelepathyText .title
+{
+	font-family:'Gotham Black';
+	font-size:40pt;
+	color: rgb(69, 104, 165);
+	
+	line-height:1.1;
+	margin-bottom:15px;
+}
+
+.whatIsTelepathyText .bodyText
+{
+	width:300px;
+	
+	font-family:'Gotham Book';
+	font-size:16pt;
+	color: rgb(120, 122, 123);
+}
+
+
+.whatIsTelepathyGenie
+{
+	vertical-align:top;
+}
+
+.wahtIsTelepathyStores
+{
+	display:inline-block;
+	margin-left:69px;
+	margin-top:-50px;
+}
+
+.wahtIsTelepathyStores img:nth-child(1)
+{
+	margin-right:10px;
+}
+
+.whatIsShadows
+{
+	margin-left:69px;
+	margin-top:50px;
+}
+
+.gStoreShadow
+{
+	width:164px;
+}
+
+.aStoreShadow
+{
+	width:181px;
+	margin-left:10px;
+}
+
+.correctGenieShadow
+{
+	margin-left:240px;
+}

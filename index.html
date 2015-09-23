@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script type="text/javascript">
+        // Preload slideshow images
+			Image1 = new Image(780, 547);
+			Image1.src = "images/slideshow_impress_trans.png";
+			Image2 = new Image(780, 547);
+			Image2.src = "images/slideshow_amaze_trans.png";
+			Image3 = new Image(780, 547);
+			Image3.src = "images/slideshow_scare_trans.png";
+			//Image4 = new Image(780, 547);
+			//Image4.src = "images/slideshow_tellus_trans.png";
+			Image4 = new Image(971, 741);
+			Image4.src = "images/stars.jpg";
+			Image5 = new Image(1214, 741);
+			Image5.src = "images/rings_02_opt_test2.png";
+			Image6 = new Image(1585, 141);
+			Image6.src = "images/ground.png";
+			Image7 = new Image(192, 299);
+			Image7.src = "images/genie.png";
+		</script>
+        
+        <link rel="stylesheet" href="css/index.css" />
+        <link rel="stylesheet" href="css/fonts.css" />
+        <link rel="stylesheet" href="css/topScreen.css" />
+        <link rel="stylesheet" href="css/whatIsTele.css" />
+        <link rel="stylesheet" href="css/howDoesIt.css" />
+		
+        <script type="text/javascript" src="jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="jquery-ui-1.10.3.custom.min.js"></script>
+        
+		<link rel="stylesheet" href="jquery-ui-1.10.3.custom.min.css">
+		
+        <title>Telepathy</title>
+		
+		<!-- 
+		
+		Google Analytics 
+		
+		-->
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-43642850-1', 'telepathyapp.com');
+		  ga('send', 'pageview');
+
+		</script>
+		
+		<!--
+		
+		Preload images and slideshow functions
+		
+		 -->
+		<script type="text/javascript">
+			
+			var intervalID;
+			var slideshowActive;
+			var $active;
+			var $next;
+			var $current;
+			var $nextIcon;
+			
+			function slideShowSlideLeft()
+			{
+				// Slideshow
+				$active = $('#slideshow IMG.active');
+				$next =  $active.next().length ? $active.next() : $('#slideshow IMG:first');
+				
+				$active.animate({
+					marginLeft: "-=1500px"
+				}, 1000, function()
+				{
+					$active.removeClass('active');
+					$active.removeClass('left');
+					$active.addClass('right');
+					
+					$active.css('margin-left', '1500px');
+				} );
+				
+				$next.animate({ 
+					marginLeft: "-=1900px",
+				}, 1000, function()
+				{
+					$next.removeClass('right');
+					$next.removeClass('left');
+					$next.addClass('active');
+				} );
+				
+				// Page Indicator
+				$current = $('#pageIndicator IMG.current');
+				$nextIcon =  $current.next().length ? $current.next() : $('#pageIndicator IMG:first');
+				
+				$nextIcon.addClass('current');
+				$nextIcon.attr('src', 'images/page_icon_current.png');
+				
+				$current.removeClass('current');
+				$current.attr('src', 'images/page_icon_next.png');
+			}
+			
+			function slideShowMoveLeft()
+			{
+				// Slideshow
+				$active = $('#slideshow IMG.active');
+				$next =  $active.next().length ? $active.next() : $('#slideshow IMG:first');
+				
+				$next.css({display: 'inline'});
+				$next.removeClass('left');
+				$next.removeClass('right');
+				$next.addClass('active');
+				$next.css('margin-left', '-390px');
+				
+				//$active.hide();
+				$active.removeClass('active');
+				$active.removeClass('right');
+				$active.addClass('left');
+				$active.css('margin-left', '1500px');
+				
+				// Page Indicator
+				$current = $('#pageIndicator IMG.current');
+				$nextIcon =  $current.next().length ? $current.next() : $('#pageIndicator IMG:first');
+				
+				$nextIcon.addClass('current');
+				$nextIcon.attr('src', 'images/page_icon_current.png');
+				
+				$current.removeClass('current');
+				$current.attr('src', 'images/page_icon_next.png');
+			}
+			
+			function slideShowSlideRight()
+			{
+				// Slideshow
+				$active = $('#slideshow IMG.active');
+				$next =  $active.prev().length ? $active.prev() : $('#slideshow IMG:last');
+				
+				$active.animate({
+					marginLeft: "+=1500px"
+				}, 1000, function()
+				{
+					$active.removeClass('active');
+					$active.removeClass('right');
+					$active.addClass('left');
+					
+					$active.css('margin-left', '-1500px');
+				} );
+				
+				$next.animate({ 
+					marginLeft: "+=1100px",
+				}, 1000, function()
+				{
+					$next.removeClass('right');
+					$next.removeClass('left');
+					$next.addClass('active');
+				} );
+				
+				// Page Indicator
+				$current = $('#pageIndicator IMG.current');
+				$nextIcon =  $current.prev().length ? $current.prev() : $('#pageIndicator IMG:last');
+				
+				$nextIcon.addClass('current');
+				$nextIcon.attr('src', 'images/page_icon_current.png');
+				
+				$current.removeClass('current');
+				$current.attr('src', 'images/page_icon_next.png');
+			}
+			
+			function slideShowMoveRight()
+			{
+				// Slideshow
+				$active = $('#slideshow IMG.active');
+				$next =  $active.prev().length ? $active.prev() : $('#slideshow IMG:last');
+				
+				$next.css({display: 'inline'});
+				$next.removeClass('left');
+				$next.removeClass('right');
+				$next.addClass('active');
+				$next.css('margin-left', '-390px');
+				
+				$active.removeClass('active');
+				$active.removeClass('right');
+				$active.addClass('left');
+				$active.css('margin-left', '-1500px');
+				
+				// Page Indicator
+				$current = $('#pageIndicator IMG.current');
+				$nextIcon =  $current.prev().length ? $current.prev() : $('#pageIndicator IMG:last');
+				
+				$nextIcon.addClass('current');
+				$nextIcon.attr('src', 'images/page_icon_current.png');
+				
+				$current.removeClass('current');
+				$current.attr('src', 'images/page_icon_next.png');
+			}
+			
+			function updateImagesToLeft()
+			{
+				$('#slideshow IMG.right').each(function( index ) {
+					$(this).removeClass('right');
+					$(this).addClass('left');
+				});
+			}
+			
+			function updateImagesToRight()
+			{
+				$('#slideshow IMG.left').each(function( index ) {
+					$(this).removeClass('left');
+					$(this).addClass('right');
+				});
+			}
+			
+			function moveLeft()
+			{
+				intervalID = window.clearInterval(intervalID);
+				updateImagesToLeft();
+				slideShowMoveRight();
+				intervalID = setInterval( "slideShowSlideRight()", 3000 );
+			}
+			
+			function moveRight()
+			{
+				intervalID = window.clearInterval(intervalID);
+				updateImagesToRight();
+				slideShowMoveLeft();
+				intervalID = setInterval( "slideShowSlideLeft()", 3000 );
+			}
+			
+			function animateGenie()
+			{
+				$('#thinkingGenie').animate({marginTop: '-=50px'}, 2000)
+									.animate({marginTop: '+=50px'}, 2000);
+									
+									
+				$('#genieShadow').animate({marginLeft: '+=10px', width: '-=20px'}, 2000)
+								.animate({marginLeft: '-=10px', width: '+=20px'}, 2000);
+			}
+			
+			$(document).ready(function() 
+			{
+				slideshowActive = true;
+				intervalID = setInterval( "slideShowSlideLeft()", 3000 );
+				
+				animateGenie();
+				setInterval( "animateGenie()", 4000 );
+				
+				// Animate anchors
+				$('#aWhatIs').click(function(){
+					$('html, body').animate({
+						scrollTop: $('[name="' + $.attr(this, 'href').substr(1) + '"]').offset().top
+					}, 500);
+					return false;
+				});
+				
+				$('#aHowDoes').click(function(){
+					$('html, body').animate({
+						scrollTop: $('[name="' + $.attr(this, 'href').substr(1) + '"]').offset().top
+					}, 500);
+					return false;
+				});
+				
+				$('#aWhereCan').click(function(){
+					$('html, body').animate({
+						scrollTop: $('[name="' + $.attr(this, 'href').substr(1) + '"]').offset().top
+					}, 500);
+					return false;
+				});
+			});
+		</script>
+    </head>
+
+    <body>
+		
+		<!-- NAVIGATION BAR -->
+		<div class="navBarBack">
+			<div class="navContent">
+				<div class="navText">
+					<a id="aWhatIs" href="#whatIs">
+						WHAT IS TELEPATHY?
+					</a>
+				</div>
+				<div class="navText">
+					<a id="aHowDoes" href="#howDoes">
+						HOW DOES IT WORK?
+					</a>
+				</div>
+				<div class="navText">
+					<a id="aWhereCan" href="#whereCan">
+						WHERE CAN I USE IT?
+					</a>
+				</div>
+				
+				<div class="socialIcons">
+					<a href="https://www.facebook.com/TelepathyApp" target="_blank"><img style="padding-right:5px" src="images/facebook.png"/></a>
+					<a href="http://www.twitter.com/telepathyapp" target="_blank"><img style="padding-right:5px" src="images/twitter.png"/></a>
+					<a href="https://plus.google.com/u/0/112908078005917034962/" target="_blank"><img src="images/googleplus.png"/></a>
+				</div>
+			</div>
+		</div>
+		
+		<!-- TOP SCREEN -->
+		<div class="mainWrapper starryNight">
+			<div class="rings">
+				<div class="starryGround">
+					<div class="grid970">
+						<img src="images/telepathy_logo.png" class="telepathyLogo"/>
+				
+						<div class="topStores">
+							<a href="https://play.google.com/store/apps/details?id=com.telepathyapp"><img src="images/google_play_logo.png"/></a>
+							<a href="https://itunes.apple.com/ie/app/telepathy-app/id856201901?mt=8&uo=4" target="itunes_store"><img src="images/app_store_logo.png"/></a>
+						</div>
+				
+						<img id="thinkingGenie" src="images/genie.png" class="topGenie"/>
+						<div class="video">
+							<div class="videoInner">
+								<!--img class="videoPlaceholder" src="images/video_background.png"/>
+								<img class="videoPlayButton" src="images/play.png"/-->
+								<iframe class="videoPlaceholder" width="640" height="360" src="//www.youtube.com/embed/0HcvRbKcRn8" frameborder="0" allowfullscreen></iframe>
+							</div>
+						</div>
+				
+						<img id="genieShadow" class="genieShadow" src="images/genie_shadow.png"/>
+						<img class="videoShadow" src="images/screen_shadow.png"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- WHAT IS TELEPATHY -->
+		<a name="whatIs"></a>
+		<div class="mainWrapper whatIsTelepathy">
+			<div class="grid970">
+				<div class="whatIsTelepathyText">
+					<div class="title">WHAT IS TELEPATHY?</div>
+					<div class="bodyText">
+						Telepathy is the only game that can read your thoughts. Bamboozle your friends and family as the Genie
+						answers their questions correctly every time!
+					</div>
+				</div>
+				
+				<img class="whatIsTelepathyGenie" src="images/correct_answer_genie.png"/>
+				
+				<div class="wahtIsTelepathyStores">
+					<a href="https://play.google.com/store/apps/details?id=com.telepathyapp"><img src="images/google_play_logo.png"/></a>
+					<a href="https://itunes.apple.com/ie/app/telepathy-app/id856201901?mt=8&uo=4" target="itunes_store"><img src="images/app_store_logo.png"/></a>
+				</div>
+				
+				<div class="whatIsShadows">
+					<img class="gStoreShadow" src="images/store_shadow.png"/>
+					<img class="aStoreShadow" src="images/store_shadow.png"/>
+					<img class="correctGenieShadow" src="images/correct_genie_shadow.png"/>
+				</div>
+			</div>
+		</div>
+		
+		<!-- HOW DOES IT WORK -->
+		<a name="howDoes"></a>
+		<div class="mainWrapper howDoesItWork">
+			<div class="grid970">
+				<img class="howDoesItIcon" src="images/how_does_it_work.png" />
+				
+				<div class="howDoesItWorkText">
+					<div class="title">HOW DOES IT WORK?</div>
+					<div class="bodyText">
+						The game uses brand new technology to harness your actual brain waves, allowing you to communicate
+						telepathically with your smartphone. Try it and see for yourself!
+					</div>
+				</div>
+				
+				<div class="howDoesTelepathyStores">
+					<a href="https://play.google.com/store/apps/details?id=com.telepathyapp"><img src="images/google_play_logo.png"/></a>
+					<a href="https://itunes.apple.com/ie/app/telepathy-app/id856201901?mt=8&uo=4" target="itunes_store"><img src="images/app_store_logo.png"/></a>
+				</div>
+				
+				<div class="howDoesShadows">
+					<img class="gStoreShadow" src="images/store_shadow.png"/>
+					<img class="aStoreShadow" src="images/store_shadow.png"/>
+				</div>
+			</div>
+		</div>
+		
+		<!-- WHERE CAN I USE IT -->
+		<a name="whereCan"></a>
+		<div class="mainWrapper whereCanIUseIt">
+			<div class="grid970" style="text-align:center">
+				
+				<img class="leftArrow" src="images/left_arrow.png" onClick="moveLeft()"/>
+				
+				<div class="imageSlideshow">
+					<div id="slideshow">
+						<img src="images/slideshow_impress_trans.png" alt="impress your friends" class="active" />
+						<img src="images/slideshow_amaze_trans.png" alt="amaze girls" class="right"/>
+						<img src="images/slideshow_scare_trans.png" alt="scare your teacher" class="right"/>
+						<!--img src="images/slideshow_tellus_trans.png" alt="tell us how you use it to win a prize" class="right"/-->
+					</div>
+				</div>
+				
+				<img class="rightArrow" src="images/right_arrow.png"  onClick="moveRight()"/>
+
+				<div id="pageIndicator">
+					<img src="images/page_icon_current.png" alt="impress your friends" class="current" />
+					<img src="images/page_icon_next.png" alt="amaze girls" />
+					<img src="images/page_icon_next.png" alt="scare your teacher" />
+					<!--img src="images/page_icon_next.png" alt="tell us how you use it to win a prize" /-->
+				</div>
+			
+			</div>
+		</div>
+		
+		<!-- FOOTER -->
+		<div class="mainWrapper footerBackground">
+			<div class="yellowFooter"></div>
+			<div class="footerStores">
+				<a href="https://play.google.com/store/apps/details?id=com.telepathyapp"><img src="images/google_play_logo.png"/></a>
+				<a href="https://itunes.apple.com/ie/app/telepathy-app/id856201901?mt=8&uo=4" target="itunes_store"><img src="images/app_store_logo.png"/></a>
+			</div>
+			<div class="blueFooter">
+				Contact: <a href='mailto:contact@telepathyapp.com'>contact@telepathyapp.com</a>
+			</div>
+		</div>
+	</body>
+</html>
